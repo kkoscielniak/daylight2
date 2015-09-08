@@ -2,7 +2,8 @@ new Vue({
     el: '#projects',
 
     data: {
-        projects: []
+        projects: [],
+        project: { name: '', goal: '' }
     },
 
     ready: function(){
@@ -19,6 +20,19 @@ new Vue({
                 .error(function(error){
                     console.error(error);
                 });
+        },
+
+        addProject: function() {
+            if(this.project.name) {
+
+                this.$http.post('/api/projects', this.project)
+                    .success(function(response){
+                        this.projects.push(this.project);
+                    })
+                    .error(function(error){
+                        console.log(error);
+                    });
+            }
         }
     }
 });

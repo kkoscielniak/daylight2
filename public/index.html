@@ -10,8 +10,16 @@
         <div id="projects">
 
             <div v-repeat="project in projects">
-                {{ project.name }} - {{ project.goal }}
+                {{ project.name }} - {{ project.goal }} [{{ project.percentage }}%]
             </div>
+
+            <label for="projectName">Project name:</label>
+            <input id="projectName" type="text" v-model="project.name">
+
+            <label for="projectGoal">Project goal:</label>
+            <input id="projectGoal" type="text" v-model="project.goal">
+            <button v-on="click: addProject">Add goal</button>
+
 
         </div>
 
