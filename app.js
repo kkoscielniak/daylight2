@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 8080;
 
 
-// router
+// API router
 var router = express.Router();
 
 router.use(function(req, res, next) {
@@ -94,6 +94,12 @@ router.route('/projects/:project_id')
     });
 
 app.use('/api', router);
+
+
+// front-end router
+app.get('*', function(req, res) {
+    res.sendfile('./public/index.html');
+});
 
 
 // init
