@@ -1,8 +1,22 @@
+<!DOCTYPE html>
 <html>
     <head>
-
+        <title>daylight2</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="format-detection" content="telephone=no">
     </head>
     <body>
-        It works!
+        <div id="projects">
+
+            <div v-repeat="project in projects">
+                {{ project.name }} - {{ project.goal }}
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="/assets/vendors/vue/dist/vue.min.js"></script>
+        <script type="text/javascript" src="/assets/vendors/vue-resource/dist/vue-resource.min.js"></script>
+        <script type="text/javascript" src="/assets/js/core.js"></script>
     </body>
 </html>
