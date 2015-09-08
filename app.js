@@ -13,7 +13,7 @@ var Project = require('./app/models/project');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(express.static('public'));
 
 // config
 var port = process.env.PORT || 8080;
@@ -97,7 +97,7 @@ app.use('/api', router);
 
 
 // front-end router
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
     res.sendfile('./public/index.html');
 });
 
