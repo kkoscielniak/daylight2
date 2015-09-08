@@ -81,6 +81,16 @@ router.route('/projects/:project_id')
                 res.json({ message: 'Project updated'});
             });
         });
+    })
+    .delete(function(req, res){
+        Project.remove({
+            _id: req.params.project_id
+        }, function(err, project) {
+            if (err)
+                res.send(err);
+
+            res.json({ message: 'Project deleted'});
+        });
     });
 
 app.use('/api', router);
