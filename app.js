@@ -29,22 +29,23 @@ router.get('/', function(req, res){
 });
 
 router.route('/projects')
+    .get(function(req, res){
+
+        Project.find(function(err, projects) {
+            if (err) res.send(err);
+            res.send(projects);
+        });
+    })
     .post(function(req, res) {
 
         var project = new Project();
         project.name = req.body.name;
-
-        // if (req.body.goal !== undefined && req.body.goal.length)
         project.goal = req.body.goal;
 
         project.save(function(err){
-            console.log('saving');
             if (err) {
                 res.json({ message: err });
             }
-
-            console.log('save 2;');
-
             res.json('Project created');
         });
     });
