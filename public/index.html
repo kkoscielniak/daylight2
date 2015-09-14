@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <style>
             .mdl-grid {
-                max-width: 996px;
+                max-width: 728px;
             }
         </style>
     </head>
@@ -32,14 +32,22 @@
                 </div>
             </header>
             <main class="mdl-layout__content">
-                <div class="page-content mdl-grid">
+                <div class="page-content">
 
 
                     <div id="projects">
 
-                        <div class="mdl-cell mdl-cell--12-col" v-repeat="project in projects">
-                            {{ project.name }} - {{ project.goal }} [{{ project.percentage }}%]
+                        <div class="mdl-grid" v-repeat="project in projects">
+                            <div class="mdl-cell mdl-cell--6-col">
+                                {{ project.name }} - {{ project.goal }}
+                            </div>
+                            <div class="mdl-cell mdl-cell--6-col">
+                                <input class="mdl-slider mdl-js-slider" type="range"
+                                min="0" max="100" v-model="project.percentage" v-on=""/>
+                                <span>{{ project.percentage }}</span>
+                            </div>
                         </div>
+
 
                         <div class="mdl-textfield mdl-js-textfield">
                             <input class="mdl-textfield__input" id="projectName" type="text" v-model="project.name">

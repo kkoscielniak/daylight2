@@ -3,7 +3,7 @@ new Vue({
 
     data: {
         projects: [],
-        project: { name: '', goal: '' }
+        project: { name: '', goal: '', percentage: 0 }
     },
 
     ready: function(){
@@ -33,6 +33,10 @@ new Vue({
                         console.log(error);
                     });
             }
+        },
+
+        alert: function() {
+            alert('It works!');
         }
     }
 });
