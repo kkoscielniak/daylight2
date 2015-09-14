@@ -5,26 +5,68 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="format-detection" content="telephone=no">
+
+        <link rel="stylesheet" href="/assets/vendors/material-design-lite/material.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style>
+            .mdl-grid {
+                max-width: 996px;
+            }
+        </style>
     </head>
     <body>
-        <div id="projects">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">Daylight 2</span>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!-- Navigation. We hide it in small screens. -->
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <a class="mdl-navigation__link" href="">Link</a>
+                        <a class="mdl-navigation__link" href="">Link</a>
+                        <a class="mdl-navigation__link" href="">Link</a>
+                        <a class="mdl-navigation__link" href="">Link</a>
+                    </nav>
+                </div>
+            </header>
+            <main class="mdl-layout__content">
+                <div class="page-content mdl-grid">
 
-            <div v-repeat="project in projects">
-                {{ project.name }} - {{ project.goal }} [{{ project.percentage }}%]
-            </div>
 
-            <label for="projectName">Project name:</label>
-            <input id="projectName" type="text" v-model="project.name">
+                    <div id="projects">
 
-            <label for="projectGoal">Project goal:</label>
-            <input id="projectGoal" type="text" v-model="project.goal">
-            <button v-on="click: addProject">Add goal</button>
+                        <div class="mdl-cell mdl-cell--12-col" v-repeat="project in projects">
+                            {{ project.name }} - {{ project.goal }} [{{ project.percentage }}%]
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" id="projectName" type="text" v-model="project.name">
+                            <label class="mdl-textfield__label" for="projectName">Project name</label>
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" id="projectGoal" type="text" v-model="project.goal">
+                            <label class="mdl-textfield__label" for="projectGoal">Project goal</label>
+                        </div>
+
+                        <button class="mdl-button mdl-js-button mdl-button--raised" v-on="click: addProject">Add goal</button>
+                    </div>
 
 
+                </div>
+            </main>
         </div>
+
+
+
 
         <script type="text/javascript" src="/assets/vendors/vue/dist/vue.min.js"></script>
         <script type="text/javascript" src="/assets/vendors/vue-resource/dist/vue-resource.min.js"></script>
         <script type="text/javascript" src="/assets/js/core.js"></script>
+
+        <!-- Material Design Lite -->
+        <script type="text/javascript" src="/assets/vendors/material-design-lite/material.min.js"></script>
     </body>
 </html>
