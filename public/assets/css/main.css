@@ -1,0 +1,7 @@
+.dl-card .card-content {
+    min-height: 250px;
+}
+
+.dl-card.card .card-action a {
+    color: black;
+}

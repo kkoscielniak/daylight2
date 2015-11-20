@@ -8,6 +8,9 @@
 
         <link rel="stylesheet" href="/assets/vendors/Materialize/bin/materialize.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <link rel="stylesheet" href="/assets/css/main.css">
+
         <style>
             .mdl-grid {
                 max-width: 728px;
@@ -16,85 +19,90 @@
     </head>
     <body>
 
+        <div id="projects">
+
+            <div class="container">
+                <div class="row" >
+                    <div class="col s12 m4" v-for="(index, project) in projects">
+                        <div class="dl-card card blue-grey green accent-1">
+                            <div class="card-content">
+                                <span class="card-title">{{ project.name }}</span>
 
 
+                                <!--<input  type="range"-->
+                                       <!--min="0" max="100" v-model="project.percentage" @change="updateProject(project)"/>-->
 
+                                <p>{{ project.goal }}</p>
 
-
-
-
-
-
-        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-            <header class="mdl-layout__header">
-                <div class="mdl-layout__header-row">
-                    <!-- Title -->
-                    <span class="mdl-layout-title">Daylight 2</span>
-                    <!-- Add spacer, to align navigation to the right -->
-                    <div class="mdl-layout-spacer"></div>
-                    <!-- Navigation. We hide it in small screens. -->
-                    <nav class="mdl-navigation mdl-layout--large-screen-only">
-                        <a class="mdl-navigation__link" href="">Link</a>
-                    </nav>
-                </div>
-            </header>
-            <main class="mdl-layout__content">
-                <div class="page-content">
-                    <div id="projects">
-                        <div class="mdl-grid" v-for="project in projects">
-                            <div class="mdl-cell mdl-cell--6-col">
-                                {{ project.name }} - {{ project.goal }}
                             </div>
-                            <div class="mdl-cell mdl-cell--6-col">
-                                <input class="mdl-slider mdl-js-slider" type="range"
-                                    min="0" max="100" v-model="project.percentage" @change="updateProject(project)"/>
-                            </div>
-                        </div>
-                        <div class="mdl-grid">
+                            <div class="card-action">
+                                <!--<a href="#">Edit</a>-->
+                                <!-- Dropdown Trigger -->
+                                <a class='dropdown-button btn' href='#' data-activates='dropdown-{{ index }}'>Update</a>
 
-                                <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield">
-                                    <input class="mdl-textfield__input" id="projectName" type="text" v-model="project.name">
-                                    <label class="mdl-textfield__label" for="projectName">Project name</label>
-                                </div>
-                                <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield">
-                                    <input class="mdl-textfield__input" id="projectGoal" type="text" v-model="project.goal">
-                                    <label class="mdl-textfield__label" for="projectGoal">Project goal</label>
-                                </div>
-                                <button class="mdl-button mdl-js-button mdl-button--raised" @click="addProject">Add goal</button>
+                                <!-- Dropdown Structure -->
+                                <ul id='dropdown-{{ index }}' class='dropdown-content'>
+                                    <li><a href="#!">one</a></li>
+                                    <li><a href="#!">two</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#!">three</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
-
-
-
-        <div class="fixed-action-btn">
-            <a class="btn-floating btn-large blue modal-trigger" href="#addGoalModal">
-                <i class="material-icons">add</i>
-            </a>
-        </div>
-
-        <!-- Add goal Modal -->
-        <div id="addGoalModal" class="modal bottom-sheet">
-            <div class="modal-content">
-                <h4>Modal Header</h4>
-                <p>A bunch of text</p>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+
+
+
+
+
+
+
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large blue modal-trigger" href="#addGoalModal">
+                    <i class="material-icons">add</i>
+                </a>
             </div>
+
+            <!-- Add goal Modal -->
+            <div id="addGoalModal" class="modal bottom-sheet">
+                <div class="container">
+                    <div class="modal-content">
+                        <h4>Add goal...</h4>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="first_name" type="text" class="validate" v-model="project.name">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate" v-model="project.goal">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn waves-effect waves-light" @click="addProject">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
+        <!-- JQuery -->
+        <script type="text/javascript" src="/assets/vendors/jquery/dist/jquery.js"></script>
 
+        <!-- Materialize -->
+        <script type="text/javascript" src="/assets/vendors/Materialize/bin/materialize.js"></script>
 
         <!-- Vue -->
         <script type="text/javascript" src="/assets/vendors/vue/dist/vue.min.js"></script>
         <script type="text/javascript" src="/assets/vendors/vue-resource/dist/vue-resource.min.js"></script>
         <script type="text/javascript" src="/assets/js/core.js"></script>
-        <!-- Materialize -->
-        <script type="text/javascript" src="/assets/vendors/jquery/dist/jquery.js"></script>
-        <script type="text/javascript" src="/assets/vendors/Materialize/bin/materialize.js"></script>
+
+
 
         <!-- front-end helpers -->
         <script type="text/javascript" src="/assets/js/frontend.js"></script>

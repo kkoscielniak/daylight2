@@ -13,7 +13,6 @@ new Vue({
     methods: {
 
         fetchAllProjects: function () {
-
             this.$http.get('/api/projects')
                 .success(function (projects) {
                     this.$set('projects', projects);
