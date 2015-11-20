@@ -15,8 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "material-design-lite": "~1.0.4",
-    "vue": "~0.12.13",
-    "vue-resource": "~0.1.15"
+    "material-design-lite": "^1.0.4",
+    "vue": "^1.0.8",
+    "vue-resource": "0.1.17"
   }
 }
