@@ -28,6 +28,7 @@ new Vue({
                 this.$http.post('/api/projects', this.project)
                     .success(function (response) {
                         this.projects.push(this.project);
+                        this.project = {}
                     })
                     .error(function (error) {
                         console.log(error);

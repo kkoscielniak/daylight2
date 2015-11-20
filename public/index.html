@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="format-detection" content="telephone=no">
 
-        <link rel="stylesheet" href="/assets/vendors/material-design-lite/material.min.css">
+        <link rel="stylesheet" href="/assets/vendors/Materialize/bin/materialize.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <style>
             .mdl-grid {
@@ -15,6 +15,16 @@
         </style>
     </head>
     <body>
+
+
+
+
+
+
+
+
+
+
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
             <header class="mdl-layout__header">
                 <div class="mdl-layout__header-row">
@@ -24,9 +34,6 @@
                     <div class="mdl-layout-spacer"></div>
                     <!-- Navigation. We hide it in small screens. -->
                     <nav class="mdl-navigation mdl-layout--large-screen-only">
-                        <a class="mdl-navigation__link" href="">Link</a>
-                        <a class="mdl-navigation__link" href="">Link</a>
-                        <a class="mdl-navigation__link" href="">Link</a>
                         <a class="mdl-navigation__link" href="">Link</a>
                     </nav>
                 </div>
@@ -54,18 +61,42 @@
                                     <label class="mdl-textfield__label" for="projectGoal">Project goal</label>
                                 </div>
                                 <button class="mdl-button mdl-js-button mdl-button--raised" @click="addProject">Add goal</button>
-
                         </div>
                     </div>
                 </div>
             </main>
         </div>
 
+
+
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large blue modal-trigger" href="#addGoalModal">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+
+        <!-- Add goal Modal -->
+        <div id="addGoalModal" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+
+
+
         <!-- Vue -->
         <script type="text/javascript" src="/assets/vendors/vue/dist/vue.min.js"></script>
         <script type="text/javascript" src="/assets/vendors/vue-resource/dist/vue-resource.min.js"></script>
         <script type="text/javascript" src="/assets/js/core.js"></script>
-        <!-- Material Design Lite -->
-        <script type="text/javascript" src="/assets/vendors/material-design-lite/material.min.js"></script>
+        <!-- Materialize -->
+        <script type="text/javascript" src="/assets/vendors/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="/assets/vendors/Materialize/bin/materialize.js"></script>
+
+        <!-- front-end helpers -->
+        <script type="text/javascript" src="/assets/js/frontend.js"></script>
     </body>
 </html>
