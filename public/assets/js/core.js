@@ -3,7 +3,7 @@ new Vue({
 
     data: {
         projects: [],
-        project: { name: '', goal: '', percentage: 0 }
+        project: { name: '', goal: '', percentage: null }
     },
 
     ready: function(){
@@ -35,8 +35,10 @@ new Vue({
             }
         },
 
-        alert: function() {
-            alert('It works!');
+        percentage: function(e) {
+            this.project.percentage = e.target.value;
+            console.log(this.project.percentage);
+
         }
     }
 });

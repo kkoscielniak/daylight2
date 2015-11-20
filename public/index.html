@@ -37,13 +37,13 @@
 
                     <div id="projects">
 
-                        <div class="mdl-grid" v-repeat="project in projects">
+                        <div class="mdl-grid" v-for="project in projects">
                             <div class="mdl-cell mdl-cell--6-col">
                                 {{ project.name }} - {{ project.goal }}
                             </div>
                             <div class="mdl-cell mdl-cell--6-col">
                                 <input class="mdl-slider mdl-js-slider" type="range"
-                                min="0" max="100" v-model="project.percentage" v-on=""/>
+                                min="0" max="100" v-model="project.percentage" @change="percentage"/>
                                 <span>{{ project.percentage }}</span>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             <label class="mdl-textfield__label" for="projectGoal">Project goal</label>
                         </div>
 
-                        <button class="mdl-button mdl-js-button mdl-button--raised" v-on="click: addProject">Add goal</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised" @   click="addProject">Add goal</button>
                     </div>
 
 
