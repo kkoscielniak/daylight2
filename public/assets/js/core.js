@@ -3,7 +3,7 @@ new Vue({
 
     data: {
         projects: [],
-        project: { name: '', goal: '', percentage: null }
+        project: { id: '', name: '', goal: '', percentage: 0 }
     },
 
     ready: function(){
@@ -12,33 +12,39 @@ new Vue({
 
     methods: {
 
-        fetchAllProjects: function() {
+        fetchAllProjects: function () {
+
             this.$http.get('/api/projects')
-                .success(function(projects){
+                .success(function (projects) {
                     this.$set('projects', projects);
                 })
-                .error(function(error){
+                .error(function (error) {
                     console.error(error);
                 });
         },
 
-        addProject: function() {
-            if(this.project.name) {
-
+        addProject: function () {
+            if (this.project.name) {
                 this.$http.post('/api/projects', this.project)
-                    .success(function(response){
+                    .success(function (response) {
                         this.projects.push(this.project);
                     })
-                    .error(function(error){
+                    .error(function (error) {
                         console.log(error);
                     });
             }
         },
 
-        percentage: function(e) {
-            this.project.percentage = e.target.value;
-            console.log(this.project.percentage);
+        updateProject: function (project) {
+            console.log(project);
 
+            this.$http.put('/api/projects/' + project.id, project)
+                .success(function (res) {
+
+                })
+                .error(function (error) {
+                    console.log(error);
+                });
         }
     }
 });

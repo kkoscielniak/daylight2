@@ -33,47 +33,38 @@
             </header>
             <main class="mdl-layout__content">
                 <div class="page-content">
-
-
                     <div id="projects">
-
                         <div class="mdl-grid" v-for="project in projects">
                             <div class="mdl-cell mdl-cell--6-col">
                                 {{ project.name }} - {{ project.goal }}
                             </div>
                             <div class="mdl-cell mdl-cell--6-col">
                                 <input class="mdl-slider mdl-js-slider" type="range"
-                                min="0" max="100" v-model="project.percentage" @change="percentage"/>
-                                <span>{{ project.percentage }}</span>
+                                    min="0" max="100" v-model="project.percentage" @change="updateProject(project)"/>
                             </div>
                         </div>
+                        <div class="mdl-grid">
 
+                                <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" id="projectName" type="text" v-model="project.name">
+                                    <label class="mdl-textfield__label" for="projectName">Project name</label>
+                                </div>
+                                <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" id="projectGoal" type="text" v-model="project.goal">
+                                    <label class="mdl-textfield__label" for="projectGoal">Project goal</label>
+                                </div>
+                                <button class="mdl-button mdl-js-button mdl-button--raised" @click="addProject">Add goal</button>
 
-                        <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" id="projectName" type="text" v-model="project.name">
-                            <label class="mdl-textfield__label" for="projectName">Project name</label>
                         </div>
-
-                        <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" id="projectGoal" type="text" v-model="project.goal">
-                            <label class="mdl-textfield__label" for="projectGoal">Project goal</label>
-                        </div>
-
-                        <button class="mdl-button mdl-js-button mdl-button--raised" @   click="addProject">Add goal</button>
                     </div>
-
-
                 </div>
             </main>
         </div>
 
-
-
-
+        <!-- Vue -->
         <script type="text/javascript" src="/assets/vendors/vue/dist/vue.min.js"></script>
         <script type="text/javascript" src="/assets/vendors/vue-resource/dist/vue-resource.min.js"></script>
         <script type="text/javascript" src="/assets/js/core.js"></script>
-
         <!-- Material Design Lite -->
         <script type="text/javascript" src="/assets/vendors/material-design-lite/material.min.js"></script>
     </body>

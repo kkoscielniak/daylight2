@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// config
+// config @todo to separate file
 var port = process.env.PORT || 8080;
 
 
@@ -78,7 +78,7 @@ router.route('/projects/:project_id')
                 if (err)
                     res.send(err);
 
-                res.json({ message: 'Project updated'});
+                res.json({ message: 'Project updated' });
             });
         });
     })
